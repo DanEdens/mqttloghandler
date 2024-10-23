@@ -33,6 +33,20 @@ logger.debug("This is a debug message")
 logger.warning("This is a warning message")
 ```
 
+## Singleton Logger
+
+The `makeLogger` function returns a logger that acts as a singleton. This means that once a logger is created with specific setup values, you can retrieve the same logger instance elsewhere in your application without needing to re-specify those values. This is particularly useful for maintaining consistent logging behavior across different modules or components of your application.
+
+To retrieve the logger again, simply call `logging.getLogger` with the same name:
+
+```python
+# Retrieve the existing logger instance
+logger = logging.getLogger('myapp')
+
+# Continue logging
+logger.info("Continuing to log with the same logger instance")
+```
+
 ## Testing
 
 To test `mqttlogger` with a local Mosquitto broker, follow these steps:
