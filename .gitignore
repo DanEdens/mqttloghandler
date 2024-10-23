@@ -1,2 +1,7 @@
 
 *.pyc
+/.idea
+/mqttlogger.egg-info
+/mqttloghandler.egg-info
+*.gz
+*.whl

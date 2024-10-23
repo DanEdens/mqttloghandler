@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mqttlogger',
+    name='mqttloghandler',
     version='0.1.0',
     description='A custom logging handler that publishes messages to an MQTT broker.',
     long_description=open('README.md').read(),
