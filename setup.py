@@ -6,9 +6,9 @@ setup(
     description='A custom logging handler that publishes messages to an MQTT broker.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    author='Your Name',
-    author_email='your.email@example.com',
-    url='https://github.com/yourusername/mqttlogger',  # Replace with your GitHub repo URL
+    author='Dan Edens',
+    author_email='danedens31@gmail.com',
+    url='https://github.com/DanEdens/mqttloghandler',  # Replace with your GitHub repo URL
     packages=find_packages(),
     install_requires=[
         'paho-mqtt>=1.5.1',

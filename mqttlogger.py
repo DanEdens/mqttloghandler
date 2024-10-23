@@ -75,12 +75,16 @@ def establishBroker():
 
 
 def makeLogger(name: str = __name__, log_to_file: bool = False,
-               log_level: str = 'DEBUG') -> logging.Logger:
+               log_level: str = 'DEBUG', hostname=None) -> logging.Logger:
     """Create the project wide logger."""
+    # Check if the logger already exists
+    log = logging.getLogger(name)
+    if log.hasHandlers():
+        return log
+
     name = name.replace(".", "/")
     _format = '%(asctime)s - %(module)s - %(message)s' if log_level == 'DEBUG' else '%(asctime)s - %(message)s'
 
-    log = logging.getLogger(name)
     log.setLevel(log_level)
 
     if log_to_file:
@@ -95,7 +99,7 @@ def makeLogger(name: str = __name__, log_to_file: bool = False,
     stream_handler.setFormatter(logging.Formatter(_format))
     log.addHandler(stream_handler)
 
-    my_handler = mqttHandler(topic=f'DVT/{name}')
+    my_handler = mqttHandler(_hostName=hostname, topic=f'DVT/{name}')
     log.addHandler(my_handler)
     return log
 
@@ -109,4 +113,3 @@ def ensure_exists(path):
             if exc.errno != errno.EEXIST:
                 raise
     return path
-
